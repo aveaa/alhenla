@@ -80,6 +80,7 @@ client.on("message", message => {
 				});
 });
 client.on('message', async (message) => {
+	let prefix = '.';
 let prefixes = ['.'];
     let prefix = false;
     prefixes.forEach(prefix_ => {
@@ -87,11 +88,7 @@ let prefixes = ['.'];
             prefix = prefix_;
         }
     })
-        tet.forEach(tat => {
-        if (message.content.startsWith(tat)) {
-            prefix = tat;
-        }
-    })
+        
     if (prefix === false) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
