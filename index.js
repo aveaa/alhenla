@@ -101,6 +101,7 @@ if (['profile'].includes(command)) {
 	if(!user) return message.channel.send("Укажите пользователя");
 	if(user.user.bot) return message.channel.send("У ботов нет аккаунтов");
 con.query(`SELECT * FROM Alhena WHERE id = '${user.user.id}'`, (err, rows) => {
+	let us = client.users.get(user.user.id);
 	let lvl = rows[0].lvl;
         let xp = rows[0].xp;
         let money = rows[0].money;
@@ -108,7 +109,7 @@ con.query(`SELECT * FROM Alhena WHERE id = '${user.user.id}'`, (err, rows) => {
         let totalxp = rows[0].global;
             if(!rows[0]) return message.channel.send(`${user.user.username} не имеет аккаунта, он должен отправить хотя бы 1 сообщение.`);
             message.channel.send({embed: new Discord.RichEmbed()
-            	.setTitle(`Профиль пользователя ${client.users.get('${rows[0].id}').username}`)
+            	.setTitle(`Профиль пользователя ${us.tag}`)
             	.setColor("RANDOM")
             	.addField('**XP**', xp+'/'+NeedXp, true)
             	.addField('**LVL**', lvl, true)
