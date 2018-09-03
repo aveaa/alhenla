@@ -44,11 +44,11 @@ client.on('message', async message => {
 	let newxp = Math.floor(Math.random() * (20 - 10 + 1)) + 20;
 	 if (talked.has(message.author.id)) return;
 	if(message.author.bot) return;
-    con.query(`SELECT * FROM alhena WHERE id = '${message.author.id}'`, (err, rows) => {
+    con.query(`SELECT * FROM Alhena WHERE id = '${message.author.id}'`, (err, rows) => {
 	    if(err) throw err;
   let sql;
   if (!rows[0]) {
-    con.query(`INSERT INTO alhena (id, xp, lvl, money, global) VALUES ('${message.author.id}', ${newxp}, '1', '${generateMon()}', '${newxp})`);
+    con.query(`INSERT INTO Alhena (id, xp, lvl, money, global) VALUES ('${message.author.id}', ${newxp}, '1', '${generateMon()}', '${newxp})`);
   } else {
     let xp = rows[0].xp;
     con.query(`UPDATE alhena SET xp = ${xp + newxp} WHERE id = '${message.author.id}'`);
@@ -63,7 +63,7 @@ client.on('message', async message => {
 	   
 })
 client.on("message", message => {
-	con.query(`SELECT * FROM alhena WHERE id = '${message.author.id}'`, (err, rows) => {
+	con.query(`SELECT * FROM Alhena WHERE id = '${message.author.id}'`, (err, rows) => {
 	if(!rows[0]) return;
 	        let lvl = rows[0].lvl;
 		let xp = rows[0].xp;
@@ -73,8 +73,8 @@ client.on("message", message => {
 		}
 				if(xp >= NeedXp) {
 					if(!rows[0]) return;
-		con.query(`UPDATE alhena SET lvl = ${rows[0].lvl+1} WHERE id = '${message.author.id}'`);
-		con.query(`UPDATE alhena SET xp = 0 WHERE id = '${message.author.id}'`);
+		con.query(`UPDATE Alhena SET lvl = ${rows[0].lvl+1} WHERE id = '${message.author.id}'`);
+		con.query(`UPDATE Alhena SET xp = 0 WHERE id = '${message.author.id}'`);
 
 				}
 				});
@@ -104,7 +104,7 @@ if (['profile'].includes(command)) {
 	let user = message.mentions.members.first();
 	if(!user) return message.channel.send("Укажите пользователя");
 	if(user.user.bot) return message.channel.send("У ботов нет аккаунтов");
-con.query(`SELECT * FROM xp WHERE id = '${user.user.id}'`, (err, rows) => {
+con.query(`SELECT * FROM Alhena WHERE id = '${user.user.id}'`, (err, rows) => {
 	let lvl = rows[0].lvl;
         let xp = rows[0].xp;
         let money = rows[0].money;
