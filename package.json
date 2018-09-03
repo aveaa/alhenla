@@ -1,0 +1,36 @@
+{
+  "name": "alhenla",
+  "version": "0.0.0",
+  "description": "alhenla bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-pulse/alhenla.git"
+  },
+  "keywords": [
+    "xd",
+    "lol"
+  ],
+  "dependencies": {
+    "discord.js":"^11.3.0",
+    "mysql": "2.16.0"
+    },
+  "optionalDependencies": {
+        "weather-js": "^2.0.0",
+        "canvas": "^2.0.0-alpha.12",
+        "canvas-constructor": "^1.0.1",
+        "canvas-progress-bar": "^1.0.3",
+        "git-last-commit": "^0.3.0",
+        "jimp": "^0.2.28",
+        "pixl-request": "^1.0.21"
+    },
+  "author": "X-49",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/x-pulse/alhenla/issues"
+  },
+  "homepage": "https://github.com/x-pulse/alhenla#readme"
+}
