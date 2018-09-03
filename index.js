@@ -48,7 +48,7 @@ client.on('message', async message => {
 	    if(err) throw err;
   let sql;
   if (!rows[0]) {
-    con.query(`INSERT INTO Alhena (id, xp, lvl, money, global) VALUES ('${message.author.id}', ${newxp}, '1', '${generateMon()}', '${newxp})`);
+    con.query(`INSERT INTO Alhena (id, xp, lvl, money, global) VALUES ('${message.author.id}', ${newxp}, '1', '${generateMon()}', '${newxp}')`);
   } else {
     let xp = rows[0].xp;
     con.query(`UPDATE alhena SET xp = ${xp + newxp} WHERE id = '${message.author.id}'`);
