@@ -16,7 +16,8 @@
   ],
   "dependencies": {
     "discord.js":"^11.3.0",
-    "mysql": "2.16.0"
+    "mysql": "2.16.0",
+    "moment": "^2.19.1"
     },
   "optionalDependencies": {
         "weather-js": "^2.0.0",
