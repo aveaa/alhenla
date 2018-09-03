@@ -15,20 +15,7 @@ con.connect(err => {
 })
 client.on('ready', () => {
         console.log(`Успешный старт.`)
-	console.log("----------Количество---------- ")
-	console.log(`${client.guilds.size} серверов `)
-	console.log(`${client.channels.size} каналов`)
-	console.log(`${client.users.size} юзеров    `)
-	console.log("----------Данные-------------- ")
-	console.log(`Лог сервер: нету (нету)`)
-	console.log(`Овнер: 361951318929309707 (X-49#8847)`)
-	console.log(`Сайт: нету`)
-	console.log("----------Логин---------- ")
-	console.log(`Успешный логин.`)
-	console.log(`Залогинился в ${client.user.username}`)
-	console.log(`ID: ${client.user.id}`)
-	console.log("------------------------------")
-    client.user.setActivity(``)    
+    client.user.setActivity(`.help`)    
 });
 function generateXp() {
   let max = 30;
@@ -119,6 +106,9 @@ con.query(`SELECT * FROM Alhena WHERE id = '${user.user.id}'`, (err, rows) => {
 				   .setThumbnail(us.avatarURL)
             })
     });
+    } else if (['help'].includes(command)) {
+	    message.channel.send("```Help panel \n\n\n"+".help - show this message\n" 
+				 +".profile - show user profile"+"```")
     }
 });
 client.login(process.env.TOKEN)
