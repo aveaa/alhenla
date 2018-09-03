@@ -80,7 +80,6 @@ client.on("message", message => {
 				});
 });
 client.on('message', async (message) => {
-	let prefix = '.';
 let prefixes = ['.'];
     let prefix = false;
     prefixes.forEach(prefix_ => {
