@@ -113,8 +113,10 @@ con.query(`SELECT * FROM Alhena WHERE id = '${user.user.id}'`, (err, rows) => {
             	.setColor("RANDOM")
             	.addField('**XP**', xp+'/'+NeedXp, true)
             	.addField('**LVL**', lvl, true)
+				  .addBlankField()
             	.addField('**Total XP**', totalxp, true)
             	.addField('Money', money, true)
+				   .setThumbnail(us.avatarURL)
             })
     });
     }
