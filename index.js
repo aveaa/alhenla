@@ -51,9 +51,9 @@ client.on('message', async message => {
     con.query(`INSERT INTO Alhena (id, xp, lvl, money, global) VALUES ('${message.author.id}', ${newxp}, '1', '${generateMon()}', '${newxp}')`);
   } else {
     let xp = rows[0].xp;
-    con.query(`UPDATE alhena SET xp = ${xp + newxp} WHERE id = '${message.author.id}'`);
-    con.query(`UPDATE alhena SET money = '${rows[0].money + generateMon()}' WHERE id = '${message.author.id}'`);
-    con.query(`UPDATE alhena SET global = ${rows[0].global + newxp} WHERE id = '${message.author.id}'`);
+    con.query(`UPDATE Alhena SET xp = ${xp + newxp} WHERE id = '${message.author.id}'`);
+    con.query(`UPDATE Alhena SET money = '${rows[0].money + generateMon()}' WHERE id = '${message.author.id}'`);
+    con.query(`UPDATE Alhena SET global = ${rows[0].global + newxp} WHERE id = '${message.author.id}'`);
 	  talked.add(message.author.id);
         setTimeout(() => {
           talked.delete(message.author.id);
