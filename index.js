@@ -85,10 +85,13 @@ let prefixes = ['.'];
 	};
 if (['profile'].includes(command)) {
 	let user = message.mentions.members.first();
-	if(!user) return message.channel.send("Укажите пользователя");
+	let id = user.id;
+	if(!user) {
+		id = message.author.id;
+	}
 	if(user.user.bot) return message.channel.send("У ботов нет аккаунтов");
-con.query(`SELECT * FROM Alhena WHERE id = '${user.user.id}'`, (err, rows) => {
-	let us = client.users.get(user.user.id);
+con.query(`SELECT * FROM Alhena WHERE id = '${id}'`, (err, rows) => {
+	let us = client.users.get(id);
 	let lvl = rows[0].lvl;
         let xp = rows[0].xp;
         let money = rows[0].money;
@@ -97,7 +100,7 @@ con.query(`SELECT * FROM Alhena WHERE id = '${user.user.id}'`, (err, rows) => {
             if(!rows[0]) return message.channel.send(`${user.user.username} не имеет аккаунта, он должен отправить хотя бы 1 сообщение.`);
             message.channel.send({embed: new Discord.RichEmbed()
             	.setTitle(`Профиль пользователя ${us.tag}`)
-            	.setColor("RANDOM")
+            	.setColor("#b2ff63")
             	.addField('**XP**', xp+'/'+NeedXp, true)
             	.addField('**LVL**', lvl, true)
 				  .addBlankField()
