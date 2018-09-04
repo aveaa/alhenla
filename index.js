@@ -87,7 +87,7 @@ if (['profile'].includes(command)) {
 	let user = message.mentions.members.first();
 	let id = user.user.id;
 	if(!user) {
-		id = message.author.id;
+		message.channel.send(`Укажите пользователя`)
 	}
 	if(user.user.bot) return message.channel.send("У ботов нет аккаунтов");
 con.query(`SELECT * FROM Alhena WHERE id = '${id}'`, (err, rows) => {
