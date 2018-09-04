@@ -85,7 +85,7 @@ let prefixes = ['.'];
 	};
 if (['profile'].includes(command)) {
 	let user = message.mentions.members.first();
-	let id = user.id;
+	let id = user.user.id;
 	if(!user) {
 		id = message.author.id;
 	}
